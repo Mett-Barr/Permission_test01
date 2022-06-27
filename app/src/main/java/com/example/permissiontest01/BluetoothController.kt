@@ -59,8 +59,14 @@ class BluetoothController(private val activity: Activity) {
         }
     }
 
+    private fun permission() {
+        activity.requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION), 1)
+    }
 
     fun enableBluetooth() {
+
+        permission()
+
         if (!adapter.isEnabled) {
             // 方法一：請求打開藍牙
             Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE).also {

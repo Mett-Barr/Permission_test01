@@ -35,7 +35,8 @@ class MainActivity : ComponentActivity() {
         }
 
 
-        val filter = IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED)
+        val filter = IntentFilter(ACTION_STATE_CHANGED)
+        filter.addAction(BluetoothDevice.ACTION_FOUND)
         registerReceiver(receiver, filter)
 
     }
